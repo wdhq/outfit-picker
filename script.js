@@ -62,16 +62,15 @@ function startSlideshow(slideshowClass, images, delay = 5000) {
 const slideshowImages = {
     slideshow1: [
         './Images/Tops_Responsibili_Tee_1.jpg',
-        './Images/Tops_Uprisal_Hoody.jpg',
-        './Images/Tops_Nano_Puff.jpg',
-        './Images/Tops_Capilene_Crew.jpg',
-        './Images/Tops_Capilene_Gloves.jpg',
-        './Images/Tops_Torrentshell_Jacket.jpg'
+        './Images/Tops_Responsibili_Tee_2.jpg',
+        './Images/Tops_Responsibili_Tee_3.jpg',
+        './Images/Tops_Responsibili_Tee_4.jpg',
+        './Images/Tops_Responsibili_Tee_5.jpg'
     ],
     slideshow2: [
         './Images/Bottoms_Everyday_Pants.jpg',
-        './Images/Bottoms_Capilene_Bottoms.jpg',
-        './Images/Bottoms_Torrentshell_Pants.jpg'
+        './Images/Bottoms_Venga_Rock_1.jpg',
+        './Images/Bottoms_Venga_Rock_2.jpg'
     ]
 };
 
