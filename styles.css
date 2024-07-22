@@ -78,7 +78,7 @@ body {
     color: var(--text-color);
     font-weight: 400;
     font-size: var(--font-size-small);
-    margin-right: -4vw;
+    margin-right: -80px;
 }
 
 .row {
