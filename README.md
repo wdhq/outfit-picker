@@ -2,7 +2,7 @@
 
 ### For personal entertainment only
 
-###### Quick note for adding parameters (e.g. Checkbox, Drop Menu, Radio Buttons)
+> Quick note for adding parameters (e.g. Checkbox, Drop Menu, Radio Buttons)
 
 Targeted values will be interpreted as ```undisplayed```
 
