@@ -34,7 +34,7 @@ function updateImages() {
 
         if (shouldHide) {
             image.classList.add('fading-out');
-            setTimeout(() => image.classList.add('hidden'), 500);
+            setTimeout(() => image.classList.add('hidden'), 0);
         } else {
             image.classList.remove('hidden', 'fading-out');
             image.classList.add('fading-in');
