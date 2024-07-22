@@ -1,0 +1,140 @@
+:root {
+    --main-bg-color: #EEEEEE;
+    --text-color: #666666;
+    --font-size-small: 0.7rem;
+    --font-size-large: 1.2rem;
+    --slider-width: 150%;
+    --slider-value-display: none;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--main-bg-color);
+    margin: 0;
+    padding: 0;
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.picker-container {
+    position: absolute;
+    top: 40px;
+    right: 100px;
+    padding: 10px 20px;
+    z-index: 1000;
+}
+
+.container {
+    width: 80vw;
+    margin-left: 100px;
+}
+
+.picker-row {
+    display: flex;
+    gap: 100px;
+}
+
+.slider-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.slider {
+    width: var(--slider-width);
+}
+
+.slider-value {
+    display: var(--slider-value-display);
+}
+
+.slider-labels {
+    display: flex;
+    justify-content: space-between;
+    width: var(--slider-width);
+    color: var(--text-color);
+    font-weight: 400;
+    font-size: var(--font-size-small);
+    margin-top: 10px;
+}
+
+.row {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    min-height: 175px;
+}
+
+.label {
+    width: 120px;
+    font-weight: 500;
+    font-size: var(--font-size-large);
+    margin-right: 2vw;
+}
+
+.object-container {
+    display: flex;
+    position: relative;
+    flex-wrap: nowrap;
+    gap: 10px;
+    overflow: hidden;
+}
+
+.object-image {
+    width: 175px;
+    height: 175px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    object-fit: cover;
+    transition: opacity 0.5s ease;
+    opacity: 1;
+    display: block;
+}
+
+.fading-out {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.hidden {
+    display: none;
+    pointer-events: none;
+}
+
+.fading-in {
+    opacity: 0;
+    display: block;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    transition-delay: 0.5s;
+}
+
+.visible {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.footer-text {
+    position: absolute;
+    bottom: 40px;
+    right: 100px;
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    color: var(--text-color);
+    font-size: var(--font-size-small);
+    font-weight: 400;
+}
+
+.footer-text a {
+    color: var(--text-color);
+    text-decoration: underline;
+}
+
+.footer-text a:hover {
+    text-decoration: none;
+}
