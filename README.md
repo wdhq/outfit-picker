@@ -4,7 +4,7 @@
 
 > Quick note for adding parameters (e.g. Checkbox, Drop Menu, Radio Buttons)
 
-Targeted values will be interpreted as ```undisplayed```
+Targeted values will be interpreted as ```hidden```
 
 ```
 data-sliders="slider1;slider2" 
