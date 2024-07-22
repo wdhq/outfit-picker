@@ -80,5 +80,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateSliderValues(); // Initialize images based on default slider values
     startSlideshow('slideshow2', slideshowImages.slideshow2);
-    setTimeout(() => startSlideshow('slideshow1', slideshowImages.slideshow1), 3000);
+    setTimeout(() => startSlideshow('slideshow1', slideshowImages.slideshow1), 2500);
 });
