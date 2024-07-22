@@ -5,6 +5,8 @@
     --font-size-large: 1.2rem;
     --slider-width: 150%;
     --slider-value-display: none;
+    --idle-opacity: 0.33;
+    --transition-duration: 0.5s;
 }
 
 body {
@@ -34,6 +36,7 @@ body {
 
 .picker-row {
     display: flex;
+    align-items: center;
     gap: 100px;
 }
 
@@ -59,6 +62,23 @@ body {
     font-weight: 400;
     font-size: var(--font-size-small);
     margin-top: 10px;
+}
+
+.slider-labels span {
+    transition: opacity var(--transition-duration) ease;
+}
+
+.checkbox-checked-idle,
+.checkbox-checked-moderate {
+    opacity: var(--idle-opacity);
+}
+
+.checkbox-label {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+    font-weight: 400;
+    font-size: var(--font-size-small);
+    margin-right: -4vw;
 }
 
 .row {
@@ -90,14 +110,13 @@ body {
     border-radius: 5px;
     background-color: #ffffff;
     object-fit: cover;
-    transition: opacity 0.5s ease;
+    transition: opacity var(--transition-duration) ease;
     opacity: 1;
     display: block;
 }
 
 .fading-out {
     opacity: 0;
-    transition: opacity 0.5s ease;
 }
 
 .hidden {
@@ -109,8 +128,7 @@ body {
     opacity: 0;
     display: block;
     pointer-events: none;
-    transition: opacity 0.5s ease;
-    transition-delay: 0.5s;
+    transition-delay: var(--transition-duration);
 }
 
 .visible {
@@ -137,4 +155,9 @@ body {
 
 .footer-text a:hover {
     text-decoration: none;
+}
+
+.slider:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
 }

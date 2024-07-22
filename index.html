@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Outfit Picker - Select your outfit based on weather and activity level.">
     <title>Outfit Picker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="picker-container">
         <div class="picker-row">
+            <label for="fitness-checkbox" class="checkbox-label">Fitness</label>
+            <input type="checkbox" id="fitness-checkbox">
             <div class="slider-wrapper">
                 <input id="slider1" type="range" min="0" max="2" step="1" value="1" class="slider">
                 <span id="slider1-value" class="slider-value"></span>
@@ -29,51 +32,52 @@
                     <span>Hot</span>
                 </div>
             </div>
-        </div>
+        </div>        
     </div>
     <div class="container">
         <div class="row">
             <div class="label">Head</div>
             <div class="object-container">
-                <img src="./Images/Head_Label_Trad.jpg" alt="Object 1.1" class="object-image" data-sliders="slider1;slider2" data-hide-values="0;0">
-                <img src="./Images/Head_Grotto_Beanie.jpg" alt="Object 1.2" class="object-image" data-sliders="slider1;slider2" data-hide-values=";1,2">
-                <img src="./Images/Head_Capilene_Balaclava.jpg" alt="Object 1.3" class="object-image" data-sliders="slider1;slider2" data-hide-values="0,1;1,2">
+                <img src="./Images/Head_Label_Trad.jpg" alt="Head Label Traditional" class="object-image" data-sliders="slider1;slider2" data-hide-values="0;0" data-checkbox-hide-values=";0">
+                <img src="./Images/Head_Grotto_Beanie.jpg" alt="Head Grotto Beanie" class="object-image" data-sliders="slider1;slider2" data-hide-values=";1,2" data-checkbox-hide-values=";1,2">
+                <img src="./Images/Head_Capilene_Balaclava.jpg" alt="Head Capilene Balaclava" class="object-image" data-sliders="slider1;slider2" data-hide-values="0,1;1,2" data-checkbox-hide-values=";1,2">
             </div>
         </div>
         <div class="row">
             <div class="label">Tops</div>
             <div class="object-container">
-                <img src="./Images/Tops_Responsibili_Tee_1.jpg" alt="Object 2.1" class="object-image slideshow1" data-sliders="slider1;slider2" data-hide-values=";">
-                <img src="./Images/Tops_Uprisal_Hoody.jpg" alt="Object 2.2" class="object-image" data-sliders="slider1;slider2" data-hide-values="1,2;1,2">
-                <img src="./Images/Tops_Nano_Puff.jpg" alt="Object 2.3" class="object-image" data-sliders="slider1;slider2" data-hide-values="0,2;1,2">
-                <img src="./Images/Tops_Capilene_Crew.jpg" alt="Object 2.4" class="object-image" data-sliders="slider1;slider2" data-hide-values="0,1;1,2">
-                <img src="./Images/Tops_Capilene_Gloves.jpg" alt="Object 2.5" class="object-image" data-sliders="slider1;slider2" data-hide-values="0;1,2">
-                <img src="./Images/Tops_Torrentshell_Jacket.jpg" alt="Object 2.6" class="object-image" data-sliders="slider1;slider2" data-hide-values="0,1;1,2">
+                <img src="./Images/Tops_Responsibili_Tee_1.jpg" alt="Tops Responsibili Tee" class="object-image slideshow1" data-sliders="slider1;slider2" data-hide-values=";" data-checkbox-hide-values=";0,2">
+                <img src="./Images/Tops_Uprisal_Hoody.jpg" alt="Tops Uprisal Hoody" class="object-image" data-sliders="slider1;slider2" data-hide-values="1,2;1,2" data-checkbox-hide-values="1,2;1,2">
+                <img src="./Images/Tops_Nano_Puff.jpg" alt="Tops Nano Puff" class="object-image" data-sliders="slider1;slider2" data-hide-values="0,2;1,2" data-checkbox-hide-values="1,2;1,2">
+                <img src="./Images/Tops_Capilene_Crew.jpg" alt="Tops Capilene Crew" class="object-image" data-sliders="slider1;slider2" data-hide-values="0,1;0,1,2" data-checkbox-hide-values=";1">
+                <img src="./Images/Tops_Capilene_Gloves.jpg" alt="Tops Capilene Gloves" class="object-image" data-sliders="slider1;slider2" data-hide-values="0;1,2" data-checkbox-hide-values=";1,2">
+                <img src="./Images/Tops_Torrentshell_Jacket.jpg" alt="Tops Torrentshell Jacket" class="object-image" data-sliders="slider1;slider2" data-hide-values="0,1;1,2" data-checkbox-hide-values=";1,2">
             </div>
         </div>
         <div class="row">
             <div class="label">Bottoms</div>
             <div class="object-container">
-                <img src="./Images/Bottoms_Boxer_Briefs.jpg" alt="Object 3.1" class="object-image" data-sliders="slider1;slider2" data-hide-values=";">
-                <img src="./Images/Bottoms_Everyday_Pants.jpg" alt="Object 3.2" class="object-image slideshow2" data-sliders="slider1;slider2" data-hide-values=";">
-                <img src="./Images/Bottoms_Capilene_Bottoms.jpg" alt="Object 3.3" class="object-image" data-sliders="slider1;slider2" data-hide-values="2;1,2">
-                <img src="./Images/Bottoms_Torrentshell_Pants.jpg" alt="Object 3.4" class="object-image" data-sliders="slider1;slider2" data-hide-values="0,1;1,2">
+                <img src="./Images/Bottoms_Boxer_Briefs.jpg" alt="Bottoms Boxer Briefs" class="object-image" data-sliders="slider1;slider2" data-hide-values=";" data-checkbox-hide-values=";">
+                <img src="./Images/Bottoms_Everyday_Pants.jpg" alt="Bottoms Everyday Pants" class="object-image slideshow2" data-sliders="slider1;slider2" data-hide-values=";" data-checkbox-hide-values="1,2;0,1,2">
+                <img src="./Images/Bottoms_Multi_Trails.jpg" alt="Bottoms Multi Trails" class="object-image" data-sliders="slider1;slider2" data-hide-values="0,1,2;0,1,2" data-checkbox-hide-values=";0">
+                <img src="./Images/Bottoms_Capilene_Bottoms.jpg" alt="Bottoms Capilene Bottoms" class="object-image" data-sliders="slider1;slider2" data-hide-values="2;1,2" data-checkbox-hide-values=";2">
+                <img src="./Images/Bottoms_Torrentshell_Pants.jpg" alt="Bottoms Torrentshell Pants" class="object-image" data-sliders="slider1;slider2" data-hide-values="0,1;1,2" data-checkbox-hide-values=";1,2">
             </div>
         </div>
         <div class="row">
             <div class="label">Feet</div>
             <div class="object-container">
-                <img src="./Images/Feets_Crew.jpg" alt="Object 4.1" class="object-image" data-sliders="slider1;slider2" data-hide-values=";">
-                <img src="./Images/Feets_Sportstyle_Shoes.jpg" alt="Object 4.2" class="object-image" data-sliders="slider1;slider2" data-hide-values=";0">
-                <img src="./Images/Feets_Hiking_Boots.jpg" alt="Object 4.3" class="object-image" data-sliders="slider1;slider2" data-hide-values=";1,2">
+                <img src="./Images/Feets_Crew.jpg" alt="Feet Crew" class="object-image" data-sliders="slider1;slider2" data-hide-values=";" data-checkbox-hide-values=";">
+                <img src="./Images/Feets_Sportstyle_Shoes.jpg" alt="Feet Sportstyle Shoes" class="object-image" data-sliders="slider1;slider2" data-hide-values=";0" data-checkbox-hide-values=";0">
+                <img src="./Images/Feets_Hiking_Boots.jpg" alt="Feet Hiking Boots" class="object-image" data-sliders="slider1;slider2" data-hide-values=";1,2" data-checkbox-hide-values=";1,2">
             </div>
         </div>
     </div>
 
     <div class="footer-text">
         <p>Outfit Picker</p>
-        <a href="https://github.com/wdhq/outfit-picker" target="_blank">GitHub</a>
-        <a href="https://wornwear.patagonia.com/pages/repairs" target="_blank">Worn Wear®</a>
+        <a href="https://github.com/wdhq/outfit-picker" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://wornwear.patagonia.com/pages/repairs" target="_blank" rel="noopener noreferrer">Worn Wear®</a>
     </div>
 
     <script src="script.js"></script>
