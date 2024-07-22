@@ -10,3 +10,4 @@ Targeted values will be interpreted as ```undisplayed```
 data-sliders="slider1;slider2" 
 data-hide-values="0;1"
 ```
+[Demo](https://wdhq.github.io/outfit-picker/)
