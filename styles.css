@@ -4,6 +4,7 @@
     --font-size-small: 0.7rem;
     --font-size-large: 1.2rem;
     --slider-width: 150%;
+    --slider-width-mobile: 100%;
     --slider-value-display: none;
     --idle-opacity: 0.33;
     --transition-duration: 0.5s;
@@ -30,8 +31,8 @@ body {
 }
 
 .container {
-    width: 80vw;
-    margin-left: 100px;
+    width: auto;
+    margin: 100px;
 }
 
 .picker-row {
@@ -68,9 +69,11 @@ body {
     transition: opacity var(--transition-duration) ease;
 }
 
-.checkbox-checked-idle,
-.checkbox-checked-moderate {
-    opacity: var(--idle-opacity);
+.checkbox-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
 }
 
 .checkbox-label {
@@ -78,7 +81,13 @@ body {
     color: var(--text-color);
     font-weight: 400;
     font-size: var(--font-size-small);
-    margin-right: -80px;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.checkbox-checked-idle,
+.checkbox-checked-moderate {
+    opacity: var(--idle-opacity);
 }
 
 .row {
@@ -160,4 +169,82 @@ body {
 .slider:disabled {
     cursor: not-allowed;
     opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+    .picker-container {
+        top: 10px;
+        right: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container {
+        width: 395px;
+        margin: 10px;
+    }
+
+    .picker-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .slider-wrapper {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .slider {
+        width: 100%;
+        max-width: 200px;
+    }
+
+    .slider-labels {
+        width: 100%;
+        max-width: 200px;
+        justify-content: space-between;
+    }
+
+    .checkbox-container {
+        margin: 0;
+    }
+
+    .checkbox-label {
+        text-align: center;
+        width: auto;
+    }
+
+    .footer-text {
+        bottom: 50px;
+        right: 50px;
+        left: 50px;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .footer-text p,
+    .footer-text a {
+        margin: 0;
+    }
+
+    .label {
+        display: none;
+    }
+
+    .row {
+        min-height: 125px;
+        margin: 10px 0;
+    }
+
+    .object-image {
+        width: 125px;
+        height: 125px;
+    }
 }
