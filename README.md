@@ -1,10 +1,8 @@
 # Outfit Picker
 
-### For personal entertainment only
+## Adjustments
 
-> Quick note for adding parameters (e.g. Checkbox, Drop Menu, Radio Buttons)
-
-Targeted values are interpreted as ```hidden```
+Parameters inputs _e.g. Checkbox, Drop Menu, Radio Buttons_ are expected to be interpreted as ```hidden```
 
 ```
 data-sliders="slider1;slider2" 
