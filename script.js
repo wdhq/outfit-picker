@@ -12,21 +12,26 @@ function debounce(func, wait) {
 }
 
 function updateSliderValues() {
-    const fitnessChecked = document.getElementById('fitness-checkbox').checked;
-    let slider1Value = parseInt(document.getElementById('slider1').value);
+    const fitnessCheckbox = document.getElementById('fitness-checkbox');
+    const slider1Element = document.getElementById('slider1');
+    const slider1ValueElement = document.getElementById('slider1-value');
+    const slider2Element = document.getElementById('slider2');
+    const slider2ValueElement = document.getElementById('slider2-value');
 
-    if (fitnessChecked) {
+    let slider1Value = parseInt(slider1Element.value);
+
+    if (fitnessCheckbox.checked) {
         if (slider1Value === 0 || slider1Value === 1) {
-            slider1Value = Math.max(1, slider1Value);
-            document.getElementById('slider1').value = slider1Value;
+            slider1Value = 2;
+            slider1Element.value = slider1Value;
         }
     }
 
     sliderValues.slider1 = slider1Value;
-    sliderValues.slider2 = parseInt(document.getElementById('slider2').value);
+    sliderValues.slider2 = parseInt(slider2Element.value);
 
-    document.getElementById('slider1-value').textContent = sliderValues.slider1;
-    document.getElementById('slider2-value').textContent = sliderValues.slider2;
+    slider1ValueElement.textContent = sliderValues.slider1;
+    slider2ValueElement.textContent = sliderValues.slider2;
 
     updateImages();
 }
@@ -37,7 +42,9 @@ function updateImages() {
 
     images.forEach(image => {
         const sliders = image.getAttribute('data-sliders').split(';');
-        const hideValues = fitnessChecked ? image.getAttribute('data-checkbox-hide-values').split(';') : image.getAttribute('data-hide-values').split(';');
+        const hideValues = fitnessChecked 
+            ? image.getAttribute('data-checkbox-hide-values').split(';')
+            : image.getAttribute('data-hide-values').split(';');
 
         const shouldHide = sliders.some((sliderId, index) => {
             return hideValues[index]?.split(',').includes(sliderValues[sliderId].toString());
@@ -48,11 +55,11 @@ function updateImages() {
             setTimeout(() => {
                 image.classList.add('hidden');
                 image.classList.remove('fading-out');
-            }, 0);  // Bro keep this value to 0 no matter what
+            }, 0);
         } else {
             image.classList.remove('hidden');
             image.classList.add('fading-in');
-            setTimeout(() => image.classList.remove('fading-in'), 500);  // Matches the CSS transition duration
+            setTimeout(() => image.classList.remove('fading-in'), 500);
         }
     });
 }
@@ -61,6 +68,7 @@ function startSlideshow(slideshowClass, images, delay = 5000) {
     const elements = document.querySelectorAll(`.${slideshowClass}`);
     elements.forEach(element => {
         let currentImageIndex = 0;
+
         function changeSlideshowImage() {
             if (!element.classList.contains('hidden')) {
                 element.style.opacity = 0;
@@ -68,9 +76,12 @@ function startSlideshow(slideshowClass, images, delay = 5000) {
                     currentImageIndex = (currentImageIndex + 1) % images.length;
                     element.src = images[currentImageIndex];
                     element.style.opacity = 1;
-                }, 600);
+                }, 500);
+            } else {
+                currentImageIndex = (currentImageIndex + 1) % images.length;
             }
         }
+
         setInterval(changeSlideshowImage, delay);
     });
 }
@@ -91,29 +102,22 @@ const slideshowImages = {
 };
 
 function checkFitnessCheckbox() {
-    const fitnessChecked = document.getElementById('fitness-checkbox').checked;
+    const fitnessCheckbox = document.getElementById('fitness-checkbox');
     const slider1 = document.getElementById('slider1');
-    const slider1Value = parseInt(slider1.value);
     const idleLabel = document.querySelector('.slider-wrapper .slider-labels span:nth-child(1)');
     const moderateLabel = document.querySelector('.slider-wrapper .slider-labels span:nth-child(2)');
 
-    if (fitnessChecked) {
-        // Fix the slider1 to value 2
-        if (slider1Value !== 2) {
-            slider1.value = 2;
-            sliderValues.slider1 = 2;
-            document.getElementById('slider1-value').textContent = 2;
-        }
-        
+    if (fitnessCheckbox.checked) {
+        slider1.value = 2;
+        sliderValues.slider1 = 2;
+        document.getElementById('slider1-value').textContent = 2;
         slider1.disabled = true;
 
-        // Apply opacity change to labels
         idleLabel.classList.add('checkbox-checked-idle');
         moderateLabel.classList.add('checkbox-checked-moderate');
     } else {
         slider1.disabled = false;
 
-        // Remove opacity change from labels
         idleLabel.classList.remove('checkbox-checked-idle');
         moderateLabel.classList.remove('checkbox-checked-moderate');
     }
@@ -122,9 +126,13 @@ function checkFitnessCheckbox() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('slider1').addEventListener('input', debounce(updateSliderValues, 300));
-    document.getElementById('slider2').addEventListener('input', debounce(updateSliderValues, 300));
-    document.getElementById('fitness-checkbox').addEventListener('change', checkFitnessCheckbox);
+    const slider1 = document.getElementById('slider1');
+    const slider2 = document.getElementById('slider2');
+    const fitnessCheckbox = document.getElementById('fitness-checkbox');
+
+    slider1.addEventListener('input', debounce(updateSliderValues, 250));
+    slider2.addEventListener('input', debounce(updateSliderValues, 250));
+    fitnessCheckbox.addEventListener('change', debounce(checkFitnessCheckbox, 250));
 
     updateSliderValues();
     startSlideshow('slideshow2', slideshowImages.slideshow2);

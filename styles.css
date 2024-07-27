@@ -114,6 +114,7 @@ body {
 }
 
 .object-image {
+    background-color: #FFFFFF;
     width: 175px;
     height: 175px;
     border-radius: 5px;
