@@ -68,7 +68,7 @@ function startSlideshow(slideshowClass, images, delay = 5000) {
                     currentImageIndex = (currentImageIndex + 1) % images.length;
                     element.src = images[currentImageIndex];
                     element.style.opacity = 1;
-                }, 500);
+                }, 600);
             }
         }
         setInterval(changeSlideshowImage, delay);
