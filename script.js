@@ -55,7 +55,7 @@ function updateImages() {
             setTimeout(() => {
                 image.classList.add('hidden');
                 image.classList.remove('fading-out');
-            }, 0);
+            }, 0); // The system updates the layout before displaying it.
         } else {
             image.classList.remove('hidden');
             image.classList.add('fading-in');
@@ -130,11 +130,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const slider2 = document.getElementById('slider2');
     const fitnessCheckbox = document.getElementById('fitness-checkbox');
 
+    // Prevents the layout from overflowing.
     slider1.addEventListener('input', debounce(updateSliderValues, 250));
     slider2.addEventListener('input', debounce(updateSliderValues, 250));
     fitnessCheckbox.addEventListener('change', debounce(checkFitnessCheckbox, 250));
 
     updateSliderValues();
     startSlideshow('slideshow2', slideshowImages.slideshow2);
-    setTimeout(() => startSlideshow('slideshow1', slideshowImages.slideshow1), 2500);
+    setTimeout(() => startSlideshow('slideshow1', slideshowImages.slideshow1), 2500); // For visual reasons, prevents the slideshows from being updated all at once.
 });
